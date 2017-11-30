@@ -1,0 +1,6 @@
+const commomImg = {
+};
+
+export {
+  commomImg,
+};
