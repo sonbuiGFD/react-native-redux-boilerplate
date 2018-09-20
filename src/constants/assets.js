@@ -1,6 +1,0 @@
-const commomImg = {
-};
-
-export {
-  commomImg,
-};

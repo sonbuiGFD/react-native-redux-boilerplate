@@ -1,13 +1,15 @@
-import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
-import Main from './components/Main';
+import { UIkit } from './components';
 
-const BaseNavigation = StackNavigator({
-  Main: { screen: Main },
-}, {
-  headerMode: 'none',
-  initialRouteName: 'Main',
-});
+const BaseNavigation = StackNavigator(
+  {
+    UIkit: { screen: UIkit },
+  },
+  {
+    headerMode: 'none',
+    initialRouteName: 'UIkit',
+  },
+);
 
 export default BaseNavigation;

@@ -1,34 +1,48 @@
 {
-	"name": "ReactNativeBoilerplate",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
-	},
-	"dependencies": {
-		"lodash": "^4.17.4",
-		"react": "16.0.0",
-		"react-native": "0.50.4",
-		"react-native-i18n": "^2.0.9",
-		"react-navigation": "^1.0.0-beta.21",
-		"react-redux": "^5.0.6",
-		"redux": "^3.7.2",
-		"redux-persist": "^4.9.1",
-		"redux-thunk": "^2.2.0"
-	},
-	"devDependencies": {
-		"babel-jest": "21.2.0",
-		"babel-preset-react-native": "4.0.0",
-		"jest": "21.2.1",
-		"react-test-renderer": "16.0.0"
-	},
-	"jest": {
-		"preset": "react-native"
-	},
-	"rnpm": {
-		"assets": [
-			"./src/assets/fonts"
-		]
-	}
+  "name": "react-native-redux-boilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
+    "dev": "react-native run-android",
+    "test": "jest",
+    "clean": "rm -fr $TMPDIR/react-* && cd android/ && gradlew clean && cd ..",
+    "clean:android": "cd android/ && ./gradlew clean && cd ..",
+    "clean:ios": "rm -rf $TMPDIR/react-* && rm -rf ios/build",
+    "build:install": "cd android/ && gradlew installRelease && cd ..",
+    "build:release": "cd android/ && gradlew assembleRelease && cd ..",
+    "eslint": "eslint index.js ./src/*.js ./src/**/*.js"
+  },
+  "dependencies": {
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "react-navigation": "^2.12.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "23.4.2",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-native": "^3.2.1",
+    "jest": "23.5.0",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./src/assets/fonts"
+    ]
+  }
 }

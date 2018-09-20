@@ -1,43 +1,21 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import { NetInfo, Text } from 'react-native';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import configureStore from './Store';
 import BaseNavigation from './Router';
 
-const getStateForAction = BaseNavigation.router.getStateForAction;
+const { persistor, store } = configureStore();
 
-BaseNavigation.router.getStateForAction = (action, state) => {
-  if (state && action.type === 'ReplaceCurrentScreen') {
-    const routes = state.routes.slice(0, state.routes.length - 1);
-    routes.push(action);
-    return {
-      ...state,
-      routes,
-      index: routes.length - 1,
-    };
-  }
-
-  if (state && action.type === 'ReplacePreviousScreen') {
-    const routes = state.routes.slice(0, state.routes.length - 2);
-    routes.push(action);
-    return {
-      ...state,
-      routes,
-      index: routes.length - 2,
-    };
-  }
-
-  return getStateForAction(action, state);
-};
+Text.defaultProps.allowFontScaling = false;
 
 class App extends Component {
   constructor(props) {
     super(props);
-    Text.defaultProps.allowFontScaling=false;
     this.state = {
-      isLoading: true,
-      store: configureStore(() => this.setState({ isLoading: false })),
       isConnected: false,
+      effectiveType: false,
     };
   }
 
@@ -54,20 +32,24 @@ class App extends Component {
   }
 
   handleConnectionChange = (isConnected) => {
-    this.setState({ 
+    NetInfo.getConnectionInfo().then((connectionInfo) => {
+      this.setState({
+        effectiveType: connectionInfo.effectiveType,
+      });
+    });
+
+    this.setState({
       isConnected,
     });
-  }
-  
-  render() {
-    const { isLoading, isConnected } = this.state;
-    if (isLoading) {
-      return null;
-    }
+  };
 
+  render() {
+    const { isConnected, effectiveType } = this.state;
     return (
-      <Provider store={this.state.store}>
-        <BaseNavigation screenProps={{ isConnected }} />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BaseNavigation screenProps={{ isConnected, effectiveType }} />
+        </PersistGate>
       </Provider>
     );
   }
