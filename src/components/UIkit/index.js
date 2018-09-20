@@ -1,11 +1,22 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { TouchableHighlight } from 'react-native';
 import {
-  ScrollView, View, Text, TouchableHighlight,
-} from 'react-native';
+  Container,
+  Header,
+  Title,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Left,
+  Right,
+  Body,
+  Icon,
+  Text,
+} from 'native-base';
+import s from './style';
 
-import MainStyle from './style';
-
-class UIkit extends Component {
+class UIkit extends PureComponent {
   static navigationOptions = {
     header: null,
   };
@@ -14,18 +25,37 @@ class UIkit extends Component {
     const { navigation } = this.props;
 
     return (
-      <TouchableHighlight onPress={() => navigation.navigate(screen)} style={MainStyle.btnNavigate}>
-        <Text style={MainStyle.textBtn}>{text}</Text>
+      <TouchableHighlight onPress={() => navigation.navigate(screen)} style={s.btnNavigate}>
+        <Text style={s.textBtn}>{text}</Text>
       </TouchableHighlight>
     );
   }
 
   render() {
     return (
-      <ScrollView style={MainStyle.main}>
-        <Text>UIKit</Text>
-        <View style={{ minHeight: 1000 }}>{this.renderNavigationItem('MapView', 'map View')}</View>
-      </ScrollView>
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent={true}>
+              <Icon name="menu" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Content>
+          <Text>This is Content Section</Text>
+        </Content>
+        <Footer>
+          <FooterTab>
+            <Button full={true}>
+              <Text>Footer</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
+      </Container>
     );
   }
 }

@@ -8,10 +8,5 @@ const heightWithStatusBar = !StatusBar.currentHeight
   : height - StatusBar.currentHeight;
 
 export {
-  width,
-  height,
-  heightWithStatusBar,
-  packageJson,
-  STATUSBAR_HEIGHT,
-  googlePlaceToken,
+  width, height, heightWithStatusBar, packageJson, STATUSBAR_HEIGHT,
 };

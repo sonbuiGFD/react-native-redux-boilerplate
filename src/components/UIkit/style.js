@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const UIkit = StyleSheet.create({
   main: {
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     paddingTop: 30,
     paddingBottom: 50,
   },
