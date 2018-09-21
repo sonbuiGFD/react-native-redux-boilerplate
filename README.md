@@ -17,5 +17,7 @@ $ git clone https://github.com/sonbuiGFD/react-native-redux-boilerplate.git
 
 $ npm install
 
+$ react-native link
+
 $ react-native run-android
 ```
