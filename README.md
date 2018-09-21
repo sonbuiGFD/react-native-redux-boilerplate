@@ -15,7 +15,7 @@ This is a basic boilerplate for react native.
 ```sh
 $ git clone https://github.com/sonbuiGFD/react-native-redux-boilerplate.git
 
-$ npm install -d
+$ npm install
 
 $ react-native run-android
 ```
