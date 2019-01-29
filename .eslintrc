@@ -10,7 +10,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb",
+    "airbnb"
   ],
   "ecmaFeatures": {
     "jsx": true
@@ -44,7 +44,13 @@
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "import/no-unresolved": "off",
-    "no-return-assign": "off"
+    "no-return-assign": "off",
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": true,
+      "optionalDependencies": true,
+      "peerDependencies": true,
+      "packageDir": "./"
+    }]
   },
   "globals": {
     "backEvents": true,

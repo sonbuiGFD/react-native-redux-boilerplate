@@ -10,7 +10,7 @@ import { ConnectNetInfo } from './components';
 
 const { persistor, store } = configureStore();
 
-Text.defaultProps.allowFontScaling = false;
+Text.allowFontScaling = false;
 
 const App = () => (
   <Provider store={store}>

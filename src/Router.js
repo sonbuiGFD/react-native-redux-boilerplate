@@ -1,8 +1,8 @@
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import { UIkit } from './components';
 
-const BaseNavigation = StackNavigator(
+const BaseNavigation = createStackNavigator(
   {
     UIkit: { screen: UIkit },
   },
@@ -12,4 +12,4 @@ const BaseNavigation = StackNavigator(
   },
 );
 
-export default BaseNavigation;
+export default createAppContainer(BaseNavigation);
