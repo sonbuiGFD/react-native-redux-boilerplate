@@ -25,6 +25,8 @@ export default class SignIn extends PureComponent {
                 <Icon name="phone-portrait" style={{ color: '#c4c4c4' }} />
                 <Input />
               </Item>
+
+
             </View>
           </View>
 
