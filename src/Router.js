@@ -5,8 +5,6 @@ import {
   createSwitchNavigator,
 } from 'react-navigation';
 
-// import { UIkit } from './components';
-
 import Flash from './screens/Flash';
 
 import SignIn from './screens/Auth/SignIn';
@@ -31,15 +29,12 @@ const AuthStack = createStackNavigator(
   },
 );
 
-const AppStack = createBottomTabNavigator(
-  {
-    Home,
-    News,
-    Notification,
-    Profile,
-  },
-  {},
-);
+const AppStack = createBottomTabNavigator({
+  Home,
+  News,
+  Notification,
+  Profile,
+});
 
 const SwitchStack = createSwitchNavigator({
   Flash,
