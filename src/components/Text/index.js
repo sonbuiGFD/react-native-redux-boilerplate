@@ -6,7 +6,7 @@ const s = StyleSheet.create({
     fontFamily: 'Roboto-Regular',
   },
   bold: {
-    fontFamily: 'Roboto-Bold',
+    fontFamily: 'Roboto-Medium',
   },
   light: {
     fontFamily: 'Roboto-Light',

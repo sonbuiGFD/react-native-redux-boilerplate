@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import {
   Button, Item, Input, Icon,
 } from 'native-base';
 import { Text } from 'src/components';
 import { common } from 'src/constants/assets';
+import colors from 'src/constants/colors';
+
 import s from './style';
 
 export default class SignIn extends PureComponent {
@@ -21,12 +23,41 @@ export default class SignIn extends PureComponent {
           <View style={s.form__wrapper}>
             <Image style={s.logo} source={common.logo} />
             <View style={s.form}>
-              <Item inlineLabel={true}>
-                <Icon name="phone-portrait" style={{ color: '#c4c4c4' }} />
-                <Input />
+              <Text style={s.form__title} type="bold">
+                Chào mừng đến với Steenify
+              </Text>
+              <Item inlineLabel={true} regular={true} style={s.form__item}>
+                <Icon style={s.form__icon} name="phone-portrait" />
+                <Input
+                  style={s.form__input}
+                  placeholder="Nhập số điện thoại"
+                  placeholderTextColor={colors.input__placeholder}
+                />
               </Item>
+              <Item inlineLabel={true} regular={true} style={s.form__item}>
+                <Icon style={s.form__icon} name="lock" />
+                <Input
+                  style={s.form__input}
+                  placeholder="Nhập số điện thoại"
+                  placeholderTextColor={colors.input__placeholder}
+                />
+                <Button transparent={true}>
+                  <Icon style={s.form__icon__password} name="eye" />
+                </Button>
+              </Item>
+              <View style={s.form__controls}>
+                <TouchableOpacity style={s.form__remember}>
+                  <Icon style={s.form__remember__checkbox} name="square-o" type="FontAwesome" />
+                  <Text style={s.form__remember__label}>Nhớ mật khẩu</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={s.form__forgot}>
+                  <Text type="bold" style={s.form__forgot__label}>Quên mật khẩu?</Text>
+                </TouchableOpacity>
+              </View>
 
-
+              <Button block={true} style={s.form__cta}>
+                <Text style={s.form__cta__label}>Đăng nhập</Text>
+              </Button>
             </View>
           </View>
 
